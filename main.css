@@ -13,3 +13,8 @@ body {
     width: 300px;
     height: 500px;
 }
+
+#svg{
+    height: 50px;
+    width: 50px;
+}
