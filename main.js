@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", function(){
     draw()
     let circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
-    circle.setAttribute('fill', '#000')
+    circle.setAttribute('fill', '#00000000')
+    circle.setAttribute('stroke', '#000')
     circle.setAttribute('r', '10px')
-    circle.setAttribute('cx', '10px')
-    circle.setAttribute('cy', '10px')
+    circle.setAttribute('cx', '11px')
+    circle.setAttribute('cy', '11px')
     document.getElementById('svg').appendChild(circle);
-    document.addEventListener('mousemove', function(e){
-        positionMouse(e)
-    })
+    document.addEventListener('mousemove', onMouseMove)
 })
 
 function draw(){
@@ -30,13 +29,9 @@ function mouseY(event){
     return event.mouseY
 }
 
-function positionMouse(event){
-    let mouse = {
-        x: mouseX(event),
-        y: mouseY(event)
-    }
-    console.log('hiii')
-    let svg = document.getElementById('svg')
-    svg.style.top = `${mouse.y} px`
-    svg.style.left =`${mouse.x} px`
+let circle = document.getElementById('svg');
+
+const onMouseMove = (e) =>{
+  circle.style.left = e.pageX + 'px';
+  circle.style.top = e.pageY + 'px';
 }
